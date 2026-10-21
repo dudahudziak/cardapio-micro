@@ -1,0 +1,118 @@
+/* Os valores após a vírgula são o padrão quando o micro roda sozinho.
+   Quando integrado, o container pode redefinir essas variáveis no :root. */
+
+.cardapio {
+  font-family: var(--fonte-texto, system-ui, -apple-system, "Segoe UI", sans-serif);
+  color: var(--cor-texto, #1b2a2f);
+}
+
+.titulo {
+  margin: 0 0 1rem;
+  font-family: var(--fonte-titulo, Georgia, "Times New Roman", serif);
+  font-size: 1.6rem;
+}
+
+.lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 40em) {
+  .lista {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 1.1rem 1.2rem;
+  background: var(--cor-superficie, #ffffff);
+  border: 1px solid var(--cor-linha, #d9e0dc);
+  border-radius: 0.75rem;
+}
+
+.cardTopo {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.nome {
+  margin: 0;
+  font-family: var(--fonte-titulo, Georgia, "Times New Roman", serif);
+  font-size: 1.15rem;
+  line-height: 1.25;
+}
+
+.selo {
+  flex: none;
+  padding: 0.15rem 0.6rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--cor-tinta, #1b2a2f);
+  background: var(--cor-destaque, #f2c230);
+  border-radius: 999px;
+}
+
+.descricao {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--cor-suave, #55656b);
+}
+
+.cardRodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.preco {
+  font-weight: 700;
+  font-size: 1.1rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.botao {
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.92rem;
+  padding: 0.6rem 1rem;
+  color: #ffffff;
+  background: var(--cor-primaria, #2f7d4f);
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.botao:hover {
+  background: var(--cor-primaria-escura, #235f3b);
+}
+
+.botao:focus-visible {
+  outline: 3px solid var(--cor-destaque, #f2c230);
+  outline-offset: 2px;
+}
+
+.botao:active {
+  transform: translateY(1px);
+}
+
+.imagem {
+  display: block;
+  width: 100%;
+  height: 10rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}

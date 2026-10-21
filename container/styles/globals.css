@@ -1,0 +1,30 @@
+/* Estilos globais e "tokens" de design do container.
+   As variáveis abaixo também são lidas pelos micros (que têm valores padrão próprios). */
+:root {
+  --cor-tinta: #1b2a2f;
+  --cor-texto: #1b2a2f;
+  --cor-suave: #55656b;
+  --cor-fundo: #f3f5f2;
+  --cor-superficie: #ffffff;
+  --cor-linha: #d9e0dc;
+  --cor-primaria: #2f7d4f;
+  --cor-primaria-escura: #235f3b;
+  --cor-destaque: #f2c230;
+  --cor-erro: #b3261e;
+  --fonte-texto: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fonte-titulo: Georgia, "Times New Roman", serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fonte-texto);
+  line-height: 1.5;
+  color: var(--cor-texto);
+  background: var(--cor-fundo);
+}

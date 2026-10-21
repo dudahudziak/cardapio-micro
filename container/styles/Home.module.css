@@ -1,0 +1,78 @@
+.cabecalho {
+  color: #ffffff;
+  background: var(--cor-tinta);
+  border-bottom: 0.3rem solid var(--cor-destaque);
+}
+
+.cabecalhoConteudo {
+  width: min(100% - 2rem, 72rem);
+  margin-inline: auto;
+  padding: 1.1rem 0;
+}
+
+.marca {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  line-height: 1.15;
+}
+
+.subtitulo {
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+  color: #c9d4d0;
+}
+
+.principal {
+  width: min(100% - 2rem, 72rem);
+  margin-inline: auto;
+  padding: 1.5rem 0 3rem;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+/* Telas largas: cardápio à esquerda, pedido fixo à direita */
+@media (min-width: 64em) {
+  .principal {
+    grid-template-columns: 1fr 22rem;
+    align-items: start;
+    gap: 2rem;
+  }
+}
+
+.colunaCardapio {
+  min-height: 100vh;
+}
+
+@media (min-width: 64em) {
+  .colunaCardapio {
+    min-height: 0;
+  }
+}
+
+/* Carregamento (Suspense) e erro dos micros */
+.esqueleto {
+  min-height: 12rem;
+  padding: 1.25rem;
+  color: var(--cor-suave);
+  background: var(--cor-superficie);
+  border: 1px dashed var(--cor-linha);
+  border-radius: 0.75rem;
+}
+
+.erro {
+  padding: 1.25rem;
+  color: var(--cor-erro);
+  background: #fdeceb;
+  border: 1px solid #f3b9b5;
+  border-radius: 0.75rem;
+}
+
+.erro p {
+  margin: 0.25rem 0 0;
+}
+
+.erro code {
+  font-size: 0.9em;
+}

@@ -1,0 +1,21 @@
+{
+  "name": "container",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true next dev -p 3000",
+    "build": "cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true next build",
+    "start": "cross-env NEXT_PRIVATE_LOCAL_WEBPACK=true next start -p 3000"
+  },
+  "dependencies": {
+    "@module-federation/nextjs-mf": "8.8.76",
+    "next": "14.2.35",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "styled-jsx": "^5.1.6",
+    "webpack": "5.97.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
+}

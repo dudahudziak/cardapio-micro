@@ -1,0 +1,26 @@
+{
+  "name": "micro-frontends-pedidos",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sistema de pedidos com Micro Frontends usando Webpack Module Federation",
+  "workspaces": [
+    "container",
+    "micro-cardapio",
+    "micro-pedido"
+  ],
+  "scripts": {
+    "dev": "concurrently -n cardapio,pedido,container -c green,yellow,blue \"npm run dev -w micro-cardapio\" \"npm run dev -w micro-pedido\" \"npm run dev -w container\"",
+    "build": "npm run build --workspaces",
+    "start": "concurrently -n cardapio,pedido,container -c green,yellow,blue \"npm run start -w micro-cardapio\" \"npm run start -w micro-pedido\" \"npm run start -w container\"",
+    "dev:cardapio": "npm run dev -w micro-cardapio",
+    "dev:pedido": "npm run dev -w micro-pedido",
+    "dev:container": "npm run dev -w container"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  },
+  "overrides": {
+    "webpack": "5.97.1",
+    "enhanced-resolve": "5.17.1"
+  }
+}

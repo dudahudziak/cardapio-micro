@@ -1,0 +1,178 @@
+/* Valores após a vírgula valem quando o micro roda sozinho. */
+
+.pedido {
+  padding: 1.25rem;
+  font-family: var(--fonte-texto, system-ui, -apple-system, "Segoe UI", sans-serif);
+  color: var(--cor-texto, #1b2a2f);
+  background: var(--cor-superficie, #ffffff);
+  border: 1px solid var(--cor-linha, #d9e0dc);
+  border-top: 0.3rem solid var(--cor-destaque, #f2c230);
+  border-radius: 0.75rem;
+}
+
+.titulo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0 0 1rem;
+  font-family: var(--fonte-titulo, Georgia, "Times New Roman", serif);
+  font-size: 1.4rem;
+}
+
+.contador {
+  min-width: 1.6rem;
+  padding: 0.1rem 0.5rem;
+  font-family: var(--fonte-texto, system-ui, sans-serif);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-align: center;
+  color: #ffffff;
+  background: var(--cor-primaria, #2f7d4f);
+  border-radius: 999px;
+}
+
+.vazio {
+  margin: 0;
+  color: var(--cor-suave, #55656b);
+}
+
+.confirmacao {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  color: #14532d;
+  background: #e3f4e8;
+  border-radius: 0.5rem;
+}
+
+.lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.item {
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--cor-linha, #d9e0dc);
+}
+
+.itemInfo {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.itemNome {
+  font-weight: 600;
+}
+
+.itemSubtotal {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.itemAcoes {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.quantidade {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.botaoQtd {
+  width: 2rem;
+  height: 2rem;
+  font: inherit;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--cor-texto, #1b2a2f);
+  background: var(--cor-fundo, #f3f5f2);
+  border: 1px solid var(--cor-linha, #d9e0dc);
+  border-radius: 50%;
+}
+
+.botaoQtd:hover {
+  background: var(--cor-linha, #d9e0dc);
+}
+
+.numero {
+  min-width: 1.5rem;
+  text-align: center;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.remover {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.25rem 0;
+  cursor: pointer;
+  color: var(--cor-erro, #b3261e);
+  background: none;
+  border: 0;
+  text-decoration: underline;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 1.1rem 0;
+  font-size: 1.1rem;
+}
+
+.total strong {
+  font-size: 1.4rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.acoes {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.finalizar {
+  font: inherit;
+  font-weight: 700;
+  padding: 0.8rem 1rem;
+  color: #ffffff;
+  cursor: pointer;
+  background: var(--cor-primaria, #2f7d4f);
+  border: 0;
+  border-radius: 999px;
+}
+
+.finalizar:hover {
+  background: var(--cor-primaria-escura, #235f3b);
+}
+
+.limpar {
+  font: inherit;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  color: var(--cor-texto, #1b2a2f);
+  background: transparent;
+  border: 1px solid var(--cor-linha, #d9e0dc);
+  border-radius: 999px;
+}
+
+.limpar:hover {
+  background: var(--cor-fundo, #f3f5f2);
+}
+
+.finalizar:focus-visible,
+.limpar:focus-visible,
+.remover:focus-visible,
+.botaoQtd:focus-visible {
+  outline: 3px solid var(--cor-destaque, #f2c230);
+  outline-offset: 2px;
+}
