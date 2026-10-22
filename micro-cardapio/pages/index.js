@@ -1,10 +1,6 @@
 import Head from 'next/head';
 import Cardapio from '../components/Cardapio';
 
-/**
- * Página usada só para testar o Micro Cardápio ISOLADO (http://localhost:3001).
- * Em produção, quem consome o micro é o container, via Module Federation.
- */
 export default function PaginaIsolada() {
   return (
     <>

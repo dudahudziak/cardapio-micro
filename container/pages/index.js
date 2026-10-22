@@ -4,18 +4,14 @@ import MicroFrontend from '../components/MicroFrontend';
 import { carregarMicro } from '../components/carregarMicro';
 import estilos from '../styles/Home.module.css';
 
-/**
- * Os micros são importados com o nome do remote definido no next.config.js:
- *   "cardapio/Cardapio"  ->  remote "cardapio", módulo exposto "./Cardapio"
- *   "pedido/Pedido"      ->  remote "pedido",   módulo exposto "./Pedido"
- * carregarMicro usa React.lazy: o código do micro só é baixado quando o componente é renderizado.
- */
+
+const URL_CARDAPIO = process.env.NEXT_PUBLIC_URL_CARDAPIO || 'http://localhost:3001';
+const URL_PEDIDO = process.env.NEXT_PUBLIC_URL_PEDIDO || 'http://localhost:3002';
+
 const Cardapio = carregarMicro(() => import('cardapio/Cardapio'));
 const Pedido = carregarMicro(() => import('pedido/Pedido'));
 
 export default function Home() {
-  // Os micros dependem de `window` (eventos), então só são montados no navegador.
-  // No servidor (SSR) a página mostra apenas o esqueleto.
   const [noNavegador, setNoNavegador] = useState(false);
   useEffect(() => setNoNavegador(true), []);
 
@@ -23,8 +19,7 @@ export default function Home() {
     <>
       <Head>
         <title>Restaurante Estações | Faça seu pedido</title>
-        <link rel="preload" as="image" href="http://localhost:3001/pratos/feijoada.webp" fetchpriority="high" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preload" as="image" href={`${URL_CARDAPIO}/pratos/feijoada.webp`} fetchpriority="high" />        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="description" content="Sistema de pedidos montado com micro frontends." />
       </Head>
 
@@ -38,7 +33,7 @@ export default function Home() {
       <main className={estilos.principal}>
         <div className={estilos.colunaCardapio}>
           {noNavegador ? (
-            <MicroFrontend nome="Micro Cardápio" endereco="http://localhost:3001">
+            <MicroFrontend nome="Micro Cardápio" endereco={URL_CARDAPIO}>
               <Cardapio />
             </MicroFrontend>
           ) : (
@@ -48,7 +43,7 @@ export default function Home() {
 
         <div className={estilos.colunaPedido}>
           {noNavegador ? (
-            <MicroFrontend nome="Micro Pedido" endereco="http://localhost:3002">
+            <MicroFrontend nome="Micro Pedido" endereco={URL_PEDIDO}>
               <Pedido />
             </MicroFrontend>
           ) : (

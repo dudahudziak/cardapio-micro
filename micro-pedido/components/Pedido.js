@@ -7,25 +7,13 @@ import {
 } from '../events';
 import estilos from './Pedido.module.css';
 
-/**
- * Componente exposto pelo Module Federation: resumo do pedido.
- *
- * Este micro é o DONO do estado do pedido (lista de itens e quantidades).
- *
- * Comunicação:
- *  - OUVE   "cardapio:adicionar-item" para incluir ou incrementar um item;
- *  - OUVE   "cardapio:montado" e responde com o estado atual;
- *  - ENVIA  "pedido:atualizado" sempre que a lista muda, para o Cardápio mostrar os selos.
- */
 export default function Pedido() {
-  // [{ id, nome, preco, quantidade }]
   const [itens, setItens] = useState([]);
   const [confirmado, setConfirmado] = useState(false);
 
   const totalItens = itens.reduce((soma, item) => soma + item.quantidade, 0);
   const total = itens.reduce((soma, item) => soma + item.preco * item.quantidade, 0);
 
-  // Recebe itens vindos do Micro Cardápio
   useEffect(() => {
     function aoAdicionar(evento) {
       const { id, nome, preco } = evento.detail;
@@ -45,7 +33,6 @@ export default function Pedido() {
     return () => window.removeEventListener(EVENTO_ADICIONAR_ITEM, aoAdicionar);
   }, []);
 
-  // Informa o estado atual do pedido para quem estiver interessado (o Cardápio)
   useEffect(() => {
     function publicarEstado() {
       const quantidades = {};
@@ -57,8 +44,7 @@ export default function Pedido() {
       );
     }
 
-    publicarEstado(); // a cada mudança em `itens`
-    // Se o Cardápio carregar depois de nós, ele pede o estado atual
+    publicarEstado(); 
     window.addEventListener(EVENTO_CARDAPIO_MONTADO, publicarEstado);
     return () => window.removeEventListener(EVENTO_CARDAPIO_MONTADO, publicarEstado);
   }, [itens, totalItens, total]);
